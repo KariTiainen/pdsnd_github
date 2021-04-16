@@ -262,7 +262,7 @@ def log(msg):
 
 
 def display_data(df):
-    """Display the selected data. Beginning with the 1st five rows
+    """Displays the selected data. Beginning with the 1st five rows
         and continue to display the next five ones, if the user like to
         Arg: (dataframe) df - filtered data frame """
 
