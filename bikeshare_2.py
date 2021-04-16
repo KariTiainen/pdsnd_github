@@ -252,7 +252,9 @@ def user_stats(df):
 
 def log(msg):
     """Sets display output (print) and appends the log message string (log_msg)
-       for a possible file output
+       for a possible file output. 
+       \n has to be added at the end of string log_msg, since it is used for a write() which doesn't 
+       have a \n at the end of each line automatically
        Arg: (str) msg - Text-Output for displaying on screen and printing in log-file output """
     global log_msg
     output_str = str(msg)
