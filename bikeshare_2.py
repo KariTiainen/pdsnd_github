@@ -109,7 +109,9 @@ def load_data(city, month, day):
     
     # load data file into a dataframe
     print('\nplease wait while statistics are being generated...\n')
+    log('\n City which are loading data for is {}\n'.format(city))
     df = pd.read_csv(CITY_DATA[city])
+    
 
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
@@ -169,12 +171,12 @@ def station_stats(df):
     start_time = time.time()
 
     # display most commonly used start station
-    popular_start_station = df['Start Station'].value_counts()
-    log('most popular start station:\t {} ({})'.format(popular_start_station.index[0], popular_start_station[0]))
+    popular_start_station = df['Start Station'].mode()[0] #value_counts()
+    log('most popular start station:\t  {}'.format(popular_start_station))
     
     # display most commonly used end station
-    popular_end_station = df['End Station'].value_counts()
-    log('most popular end station:\t {} ({})'.format(popular_end_station.index[0], popular_end_station[0]))
+    popular_end_station = df['End Station'].mode()[0] #value_counts()
+    log('most popular end station:\t {}'.format(popular_end_station)
 
     # display most frequent combination of start- and end-station trip
     # Example found at google search: 
@@ -260,8 +262,6 @@ def log(msg):
     output_str = str(msg)
     print(output_str)
     log_msg += output_str + ' \n'
-
-
 
 def display_data(df):
     """Displays the selected data. Beginning with the 1st five rows
