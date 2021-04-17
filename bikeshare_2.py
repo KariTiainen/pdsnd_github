@@ -109,7 +109,9 @@ def load_data(city, month, day):
     
     # load data file into a dataframe
     print('\nplease wait while statistics are being generated...\n')
+    log('\n City which are loading data for is {}\n'.format(city))
     df = pd.read_csv(CITY_DATA[city])
+    
 
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
@@ -258,8 +260,6 @@ def log(msg):
     output_str = str(msg)
     print(output_str)
     log_msg += output_str + ' \n'
-
-
 
 def display_data(df):
     """Display the selected data. Beginning with the 1st five rows
